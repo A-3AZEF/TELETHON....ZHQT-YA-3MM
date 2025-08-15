@@ -1,11 +1,11 @@
 from telethon import TelegramClient, events
-from sessions import load_sessions
 import private_commands
 import account_commands
 import group_commands
 import translate_decorate_commands
 import asyncio
 import os
+
 
 # إعدادات السورس
 API_ID = 26845245  # استبدل بقيمك
@@ -57,18 +57,23 @@ async def main():
 def register_events(client):
     @client.on(events.NewMessage(pattern=r'^\.الاوامر$'))
     async def show_main_menu(event):
+        me = await event.client.get_me()
+        if event.sender_id != me.id:  # تجاهل أي شخص غيرك
+            return
+
         menu = """
 ╔═══════《⛧ أوامـر سـورس 𝑨𝒂𝒛𝒆𝒇 ⛧》═══════╗
 
-⌯ م1➪  اوامــر الــخــاص
-⌯ م2➪  اوامــر الحساب
-⌯ م3➪  اوامــر الجروبات والنشر التلقائي
-⌯ م4➪  اوامــر الـترجمه والزخرفه
-
+⌯ م1➪  اوامــر الــخــاص.
+⌯ م2➪  اوامــر الحساب.
+⌯ م3➪  اوامــر الجروبات والنشر التلقائي.
+⌯ م4➪  اوامــر الـترجمه والزخرفه.
+ملحوظه: جميع الاوامر تبدا ب نقطه (.) 
 ╚═════《 𝑺𝑶𝑼𝑹𝑪𝑬 𝑨𝒂𝒛𝒆𝒇 ⛧ 》═════╝
 ⌯ المطور: @T_8l8
 """
         await event.reply(menu)
+
 
     # استدعاء أوامر الملفات الأخرى
     private_commands.register(client)
