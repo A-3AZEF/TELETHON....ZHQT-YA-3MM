@@ -1,5 +1,13 @@
 from telethon import events
 import asyncio
+from telethon import events, functions, types
+from telethon.tl import functions as tl_functions
+import pytz
+from datetime import datetime
+import requests
+import os
+from bs4 import BeautifulSoup
+
 
 def register(client):
     @client.on(events.NewMessage(pattern=r'^\.م2$'))
@@ -24,15 +32,6 @@ def register(client):
 ⌯ المطور: @T_8l8
 """
         await event.reply(menu)
-
-   from telethon import events, functions, types
-from telethon.tl import functions as tl_functions
-import asyncio
-import pytz
-from datetime import datetime
-import requests
-import os
-from bs4 import BeautifulSoup
 
 # متغيرات الساعة
 clock_active = {}
@@ -296,3 +295,4 @@ def register(client):
         except Exception as e:
             await event.reply(f"❌ خطأ في تفعيل التحقق الثنائي: {str(e)}")
     # باقي الأوامر بنفس الطريقة...
+
