@@ -8,8 +8,8 @@ import asyncio
 import os
 
 # إعدادات السورس
-API_ID = 12345  # استبدل بقيمك
-API_HASH = 'your_api_hash_here'
+API_ID = 26845245  # استبدل بقيمك
+API_HASH = '0d17e3caac8b751aa91089cebf3e2439'
 BOT_TOKEN = 'your_bot_token_here'  # إذا كنت تستخدم بوت
 
 # تحميل الجلسات
@@ -52,4 +52,5 @@ def register_events(client):
     translate_decorate_commands.register(client)
 
 if __name__ == '__main__':
+
     asyncio.run(main())
