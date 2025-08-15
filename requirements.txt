@@ -1,0 +1,6 @@
+telethon
+pytz
+flask
+openai
+requests
+beautifulsoup4
