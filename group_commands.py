@@ -1,4 +1,7 @@
-from telethon import events
+from telethon import events, functions, types
+from telethon.tl import functions as tl_functions
+import asyncio
+from collections import defaultdict
 
 def register(client):
     @client.on(events.NewMessage(pattern=r'^\.م3$'))
@@ -22,5 +25,6 @@ def register(client):
 ⌯ المطور: @T_8l8
 """
         await event.reply(menu)
+
 
     # باقي الأوامر بنفس الطريقة...
